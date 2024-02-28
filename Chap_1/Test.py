@@ -10,10 +10,11 @@ class FindGuitarTester :
 
     def find(self): 
         result = self.inv.search(self.find_guitar)
-        print(2)
-        if result == False : return "Not found"
+        
+        if len(result) == 0 : return "Not found"
         else : 
-            return self.find_guitar.information()
+            for i in result : 
+                print(i.information())
         
 
     def add(self, serialNumber: str, price: float, builder: Builder, model: str, type: Type, 
@@ -24,8 +25,8 @@ class FindGuitarTester :
 
 
 if __name__ == "__main__" :
-    gui = Guitar('1', 20.0, Builder.ANY, 't', Type.ACOUSTIC, Wood.ADIRONDACK, Wood.COCOBOLO)
+    gui = Guitar('9', 50.0, Builder.ANY, 't', Type.ACOUSTIC, Wood.ADIRONDACK, Wood.COCOBOLO)
     test = FindGuitarTester(gui)
 
     test.add('1', 20.0, Builder.ANY, 't', Type.ACOUSTIC, Wood.ADIRONDACK, Wood.COCOBOLO)
-    print(test.find())
+    test.find()

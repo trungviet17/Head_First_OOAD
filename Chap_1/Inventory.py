@@ -16,19 +16,23 @@ class Inventory:
         return None 
     
     def search(self, guitar: Guitar): 
+        res = []
         for i in self.guitars : 
+            # Ignore price and serial number because it's unique
             if guitar.get_Builder() != i.get_Builder() : continue
-            t = guitar.get_Model().lower()
-            t_2 = i.get_Model().lower()
-            if t != t_2 : continue
+            
+
+            m1 = guitar.model.lower()
+            m2 = i.model.lower()
+            if m1 != m2 : continue
             if guitar.get_back_wood() != i.get_back_wood() : continue 
-            if guitar.get_price() != i.get_price() : continue
-            if guitar.get_Serial_Number() != i.get_Serial_Number(): continue
+            
+            
             if guitar.get_type() != i.get_type(): continue
             if guitar.get_top_wood() != i.get_top_wood(): continue
-            return True
+            res.append(i)
 
-        return False
+        return res
     
 
 
