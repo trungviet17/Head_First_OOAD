@@ -1,8 +1,11 @@
 
+from Category import Builder, Type, Wood
+
+
 class Guitar: 
 
-    def __init__(self, serialNumber: str, price: float, builder: str, model: str, type: str, 
-                 backwood: str, topwood: str) : 
+    def __init__(self, serialNumber: str, price: float, builder: Builder, model: str, type: Type, 
+                 backwood: Wood, topwood: Wood) : 
         self.serialNumber = serialNumber
         self.price = price
         self.builder = builder
@@ -16,13 +19,15 @@ class Guitar:
     def set_price(self, price: float): 
         self.price = price 
 
-    def get_Builder(self): return self.builder 
+    def get_Builder(self): return self.builder.name
 
     def get_Model(self): return self.model
 
-    def get_type(self): return self.type 
-    def get_back_wood(self): return self.backwood 
-    def get_top_wood(self): return self.topwood
+    def get_type(self): return self.type.name
+
+    def get_back_wood(self): return self.backwood.name
+
+    def get_top_wood(self): return self.topwood.name
 
 
     def information (self) : 
