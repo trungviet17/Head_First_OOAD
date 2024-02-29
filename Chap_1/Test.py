@@ -17,16 +17,14 @@ class FindGuitarTester :
                 print(i.information())
         
 
-    def add(self, serialNumber: str, price: float, builder: Builder, model: str, type: Type, 
-                 backwood: Wood, topwood: Wood) : 
-        self.inv.addGuitar(serialNumber, price, builder, model, type, 
-                 backwood, topwood)
+    def add(self, serialNumber: str, price: float, guitarspec: GuitarSpec) : 
+        self.inv.addGuitar(serialNumber, price, guitarspec)
 
 
 
 if __name__ == "__main__" :
-    gui = GuitarSpec(Builder.ANY, 't', Type.ACOUSTIC, Wood.ADIRONDACK, Wood.COCOBOLO)
+    gui = GuitarSpec(Builder.ANY, 't', Type.ACOUSTIC, Wood.ADIRONDACK, Wood.COCOBOLO, 13)
     test = FindGuitarTester()
 
-    test.add('1', 20.0, Builder.ANY, 't', Type.ACOUSTIC, Wood.ADIRONDACK, Wood.COCOBOLO)
+    test.add('1', 20.0, gui)
     test.find(gui)

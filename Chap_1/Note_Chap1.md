@@ -16,3 +16,16 @@
 - Tạo một đối tượng mới (GuitarSpec) lưu nhưng properties của Guitar -> Thiết kế lặp lại code 
 -  Sử dụng OO  principle để giải quyết : Thay vì tạo ra một đối tượng public lưu tính chất của guitar -> đóng gói (encapsulate) nó thành đối tượng private 
 ![image](Image\Implement_3.png)
+
+## Vấn đề 3: Cố gắng cho khả năng bảo trì và tái sử dụng thiết kế 
+- Đặt vấn đề : Yêu cầu thêm một thuộc tính mới  (số lượng dây đàn) vào trong thiết kế
+- Phân tích thiết kế cũ :  Nếu thêm thuộc tính mới vào spec : 
+    1. Cần chỉnh sửa lại constructor của đối tượng Guitar -> thêm attribute mới 
+    2. Thay đổi hàm addguitar trong Inventory 
+    3. Hàm search không dễ để tái sử dụng -> thêm phép so sánh spec 
+=> Thay đổi code trong Inventory lẫn  Guitar để thêm thuộc tính mới cho đàn vốn do spec đảm nhiệm 
+- Giải quyết : 
+    1. Thêm  thuộc tính numString vào spec 
+    2. Sửa lại constructor của guitar, thay vì thêm từng attribute thì chỉ cần thêm spec 
+    3. Thay đổi hàm so sánh trong search thành một hàm 'delegate' hơn 
+    4. Update lại test 
