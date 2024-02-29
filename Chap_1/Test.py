@@ -1,15 +1,15 @@
 from Inventory import Inventory
-from Guitar import Guitar 
+from Guitar import Guitar, GuitarSpec
 from Category import *
 
 class FindGuitarTester : 
-    def __init__(self, guitar) :
+    def __init__(self) :
         self.inv = Inventory()
-        self.find_guitar = guitar
+        
 
 
-    def find(self): 
-        result = self.inv.search(self.find_guitar)
+    def find(self, guitaspec: GuitarSpec): 
+        result = self.inv.search(guitaspec)
         
         if len(result) == 0 : return "Not found"
         else : 
@@ -25,8 +25,8 @@ class FindGuitarTester :
 
 
 if __name__ == "__main__" :
-    gui = Guitar('9', 50.0, Builder.ANY, 't', Type.ACOUSTIC, Wood.ADIRONDACK, Wood.COCOBOLO)
-    test = FindGuitarTester(gui)
+    gui = GuitarSpec(Builder.ANY, 't', Type.ACOUSTIC, Wood.ADIRONDACK, Wood.COCOBOLO)
+    test = FindGuitarTester()
 
     test.add('1', 20.0, Builder.ANY, 't', Type.ACOUSTIC, Wood.ADIRONDACK, Wood.COCOBOLO)
-    test.find()
+    test.find(gui)

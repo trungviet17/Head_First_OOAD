@@ -13,5 +13,6 @@
 
 ## Vấn đề 2 : Áp dụng các nguyên tắc OO 
 - Đặt vấn đề: Người dùng muốn tìm kiếm guitar tuy nhiên chỉ đưa ra một số đặc điểm không đưa toàn bộ do đó phương thức search không hiệu quả -> cách cải tiến ? 
-- Sử dụng OO  principle : Thay vì việc tạo ra một đối tượng mới tương tự như Guitar để phục vụ cho việc tìm kiếm ->  đóng gói tính chất của nó thành GuitarSpec (tính đóng gói - encapsulate) -> hàm tìm kiếm dựa trên tính chất đối tượng
+- Tạo một đối tượng mới (GuitarSpec) lưu nhưng properties của Guitar -> Thiết kế lặp lại code 
+-  Sử dụng OO  principle để giải quyết : Thay vì tạo ra một đối tượng public lưu tính chất của guitar -> đóng gói (encapsulate) nó thành đối tượng private 
 ![image](Image\Implement_3.png)

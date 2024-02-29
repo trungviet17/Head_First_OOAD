@@ -1,5 +1,6 @@
 from Category import *
-from Guitar import Guitar
+from typing import List
+from Guitar import Guitar, GuitarSpec
 class Inventory: 
     def __init__(self) -> None:
         self.guitars = []
@@ -15,21 +16,22 @@ class Inventory:
 
         return None 
     
-    def search(self, guitar: Guitar): 
+    def search(self, guitarspec: GuitarSpec) -> List[Guitar]:  
         res = []
         for i in self.guitars : 
             # Ignore price and serial number because it's unique
-            if guitar.get_Builder() != i.get_Builder() : continue
+            ispec = i.get_Spec()
+            if guitarspec.get_Builder() != ispec.get_Builder() : continue
             
 
-            m1 = guitar.model.lower()
-            m2 = i.model.lower()
+            m1 = guitarspec.get_Model().lower()
+            m2 = ispec.get_Model().lower()
             if m1 != m2 : continue
-            if guitar.get_back_wood() != i.get_back_wood() : continue 
+            if guitarspec.get_BackWood() != ispec.get_BackWood() : continue 
             
             
-            if guitar.get_type() != i.get_type(): continue
-            if guitar.get_top_wood() != i.get_top_wood(): continue
+            if guitarspec.get_Type() != ispec.get_Type(): continue
+            if guitarspec.get_TopWood() != ispec.get_TopWood(): continue
             res.append(i)
 
         return res
