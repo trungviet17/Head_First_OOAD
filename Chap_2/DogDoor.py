@@ -4,15 +4,15 @@
 
 class DogDoor: 
     def __init__(self) : 
-        self.open = False 
+        self.state = False 
 
     def open(self): 
         print("The dog door opens")
-        self.open = True 
+        self.state = True 
     
     def close(self): 
         print("The dog door closes")
-        self.open = False 
+        self.state = False 
 
     def isOpen(self): 
-        return self.open
+        return self.state

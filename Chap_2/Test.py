@@ -1,6 +1,6 @@
 from DogDoor import DogDoor
 from Remote import Remote
-
+import time
 
 class DogDoorSimulator: 
 
@@ -13,12 +13,11 @@ class DogDoorSimulator:
         self.remote.pressButton()
 
         print("\n Fido has gone outside ")
-        self.remote.pressButton()
-
-        print("\n Fido's all done.....")
-        self.remote.pressButton()
-
-        print("\n Fido's back inside..")
+    
+        time.sleep(5)
+        print("\n Close the door")
+        print("\n ... Fido stuck outside")
+        print("\n Gina grabs the remote control")
         self.remote.pressButton()
 
 
